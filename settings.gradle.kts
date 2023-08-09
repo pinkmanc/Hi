@@ -15,3 +15,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "Hi"
 include(":app")
+include(":hi-library")
