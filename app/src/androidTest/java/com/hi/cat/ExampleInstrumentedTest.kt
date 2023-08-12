@@ -1,4 +1,4 @@
-package com.hi.hi
+package com.hi.cat
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4
@@ -19,6 +19,6 @@ class ExampleInstrumentedTest {
     fun useAppContext() {
         // Context of the app under test.
         val appContext = InstrumentationRegistry.getInstrumentation().targetContext
-        assertEquals("com.hi.hi", appContext.packageName)
+        assertEquals("com.hi.cat", appContext.packageName)
     }
 }

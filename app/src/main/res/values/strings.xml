@@ -1,3 +1,5 @@
 <resources>
-    <string name="app_name">Hi</string>
+    <string name="app_name">app</string>
+    <string name="hilog">HiLog</string>
+    <string name="print_log">Print Log</string>
 </resources>

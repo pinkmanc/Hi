@@ -1,4 +1,4 @@
-package com.hi.hi
+package com.hi.cat
 
 import org.junit.Test
 
