@@ -7,8 +7,8 @@ import java.util.Arrays;
  * @date 2023-08-12/15:18
  **/
 public class HiStackTraceUtil {
-    public static StackTraceElement[] getCropRealStackTrack(StackTraceElement[] stackTrace,String ignorePackage){
-        return getRealStackTrace(stackTrace,ignorePackage);
+    public static StackTraceElement[] getCropRealStackTrack(StackTraceElement[] stackTrace,String ignorePackage,int maxDepth){
+        return cropStackTrace(getRealStackTrace(stackTrace,ignorePackage),maxDepth);
     }
     private static StackTraceElement[] getRealStackTrace(StackTraceElement[] stackTrace,String ignorePackage){
 
@@ -28,5 +28,13 @@ public class HiStackTraceUtil {
         return realStack;
 
     }
-
+    private static StackTraceElement[] cropStackTrace(StackTraceElement[] callStack,int maxDepth){
+        int realDepth=callStack.length;
+        if(maxDepth>0){
+            realDepth=Math.min(maxDepth,realDepth);
+        }
+        StackTraceElement[] realStack=new StackTraceElement[realDepth];
+        System.arraycopy(callStack,0,realStack,0,realDepth);
+        return realStack;
+    }
 }

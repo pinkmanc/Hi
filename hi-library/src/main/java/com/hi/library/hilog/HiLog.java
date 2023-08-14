@@ -56,7 +56,7 @@ public class HiLog {
         }
         if (config.addStackTraceInfo()){
 
-            String stackTrace= HiLogConfig.HI_STACK_TRACE_FORMATTER.format(HiStackTraceUtil.getCropRealStackTrack(new Throwable().getStackTrace(),HI_LOG_PACKAGE));
+            String stackTrace= HiLogConfig.HI_STACK_TRACE_FORMATTER.format(HiStackTraceUtil.getCropRealStackTrack(new Throwable().getStackTrace(),HI_LOG_PACKAGE,config.stackTraceDepth()));
             stringBuilder.append(stackTrace).append("\n");
         }
         List<HiLogPrinter> printers=config.getGlobalPrinters()!=null? Arrays.asList(config.getGlobalPrinters()): HiLogManager.getInstance().getPrinters();

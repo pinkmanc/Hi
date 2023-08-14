@@ -23,6 +23,9 @@ public abstract class HiLogConfig {
     public HiLogPrinter getGlobalPrinters(){
         return null;
     }
+    public int stackTraceDepth(){
+        return 5;
+    }
 
     public JsonParser injectJsonParser() {
         return null;
