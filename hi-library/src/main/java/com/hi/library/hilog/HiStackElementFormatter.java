@@ -9,20 +9,19 @@ public class HiStackElementFormatter implements HiLogFormatter<StackTraceElement
     @Override
     public String format(StackTraceElement[] data) {
         StringBuilder stringBuilder=new StringBuilder();
-        for (int i = 0,len=data.length;i<len; i++) {
+        int len = data.length;
+        int numDigits = String.valueOf(len).length();
+        String format = "%0" + numDigits + "d";
+        for (int i = 0; i < len; i++) {
             if(i==0){
                 stringBuilder.append("STACK_TRACE:\n");
             }
+            String formattedIndex = String.format(format, i + 1);
             if(i!= len -1){
-                stringBuilder.append("\t├─ ");
-                stringBuilder.append(data[i].toString());
-                stringBuilder.append("\n");
-
+                stringBuilder.append("\t├─ ").append(formattedIndex).append(" ").append(data[i].toString()).append("\n");
             }else {
-                stringBuilder.append("\t└─ ");
-                stringBuilder.append(data[i].toString());
+                stringBuilder.append("\t└─ ").append(formattedIndex).append(" ").append(data[i].toString());
             }
-
         }
         return stringBuilder.toString();
     }

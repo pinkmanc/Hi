@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hilog_hint">没有打印器,请先初始化！</string>
+</resources>

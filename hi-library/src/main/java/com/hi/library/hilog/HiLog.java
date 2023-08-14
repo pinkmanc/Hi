@@ -1,5 +1,6 @@
 package com.hi.library.hilog;
 
+import android.graphics.drawable.Drawable;
 import android.util.Log;
 
 import androidx.annotation.NonNull;
@@ -8,14 +9,18 @@ import com.hi.library.hilog.utils.HiStackTraceUtil;
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.Objects;
 
 /**
  * @author JessPinkman
  * @date 2023-08-09/16:55
  **/
 public class HiLog {
+    private static final String HI_LOG_PACKAGE ;
 
+    static {
+        String className=HiLog.class.getName();
+        HI_LOG_PACKAGE=className.substring(0,className.lastIndexOf(".")+1);
+    }
     public static void v(Object...objects){
         log(HiLogType.V,objects);
     }
@@ -41,7 +46,7 @@ public class HiLog {
         log(HiLogManager.getInstance().getConfig(), type,tag,objects);
     }
     public static void log(@NonNull HiLogConfig config, @Type int type, @NonNull String tag, @NonNull Object...objects){
-        if (!config.enable()){
+        if (!config.enable()){;
             return;
         }
         StringBuilder stringBuilder=new StringBuilder();
@@ -51,8 +56,8 @@ public class HiLog {
         }
         if (config.addStackTraceInfo()){
 
-            String stackTraceInfo= HiLogConfig.HI_STACK_ELEMENT_FORMATTER.format(HiStackTraceUtil.cropStackTraceElement(new Throwable().getStackTrace(), config.getStackTraceDepth()));
-            stringBuilder.append(stackTraceInfo).append("\n");
+            String stackTrace= HiLogConfig.HI_STACK_TRACE_FORMATTER.format(HiStackTraceUtil.getCropRealStackTrack(new Throwable().getStackTrace(),HI_LOG_PACKAGE));
+            stringBuilder.append(stackTrace).append("\n");
         }
         List<HiLogPrinter> printers=config.getGlobalPrinters()!=null? Arrays.asList(config.getGlobalPrinters()): HiLogManager.getInstance().getPrinters();
         if (printers==null){

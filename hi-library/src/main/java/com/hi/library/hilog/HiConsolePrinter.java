@@ -15,5 +15,4 @@ public class HiConsolePrinter implements HiLogPrinter{
         Log.println(type,tag,stringBuilder.toString());
 
     }
-
 }

@@ -5,8 +5,9 @@ package com.hi.library.hilog;
  * @date 2023-08-09/17:10
  **/
 public abstract class HiLogConfig {
+    public static final int MAX_LEN=512;
     static HiThreadFormatter HI_THREAD_FORMATTER=new HiThreadFormatter();
-    static HiStackElementFormatter HI_STACK_ELEMENT_FORMATTER=new HiStackElementFormatter();
+    static HiStackElementFormatter HI_STACK_TRACE_FORMATTER=new HiStackElementFormatter();
     public String getGlobalTag(){
         return "HI";
     }
@@ -18,9 +19,6 @@ public abstract class HiLogConfig {
     }
     public boolean addStackTraceInfo(){
         return false;
-    }
-    public int getStackTraceDepth(){
-        return 0;
     }
     public HiLogPrinter getGlobalPrinters(){
         return null;

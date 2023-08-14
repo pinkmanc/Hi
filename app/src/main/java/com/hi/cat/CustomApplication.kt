@@ -28,10 +28,6 @@ class CustomApplication:Application() {
         return true;
       }
 
-      override fun getStackTraceDepth(): Int {
-        return 10;
-      }
-
       override fun injectJsonParser(): JsonParser {
         return JsonParser{src ->Gson().toJson(src) }
       }

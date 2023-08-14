@@ -8,6 +8,7 @@ import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import com.hi.cat.R
 import com.hi.library.hilog.HiLog
+import com.hi.library.hilog.HiLogConfig
 
 /**
 @author JessPinkman
@@ -22,6 +23,7 @@ class HiLogActivity:AppCompatActivity() {
     }
   }
   private fun printLog() {
-    HiLog.a("suafhigsdfyuskgeadvfyuedasgv")
+
+    HiLog.a("5566")
   }
 }

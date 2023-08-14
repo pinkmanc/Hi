@@ -7,29 +7,26 @@ import java.util.Arrays;
  * @date 2023-08-12/15:18
  **/
 public class HiStackTraceUtil {
-    public static  StackTraceElement[] getCropRealStackTrace(StackTraceElement[] stackTraceElements,String ignorePackageName,int maxDepth){
-        return cropStackTraceElement(getRealStackTraceElement(stackTraceElements,ignorePackageName),maxDepth);
+    public static StackTraceElement[] getCropRealStackTrack(StackTraceElement[] stackTrace,String ignorePackage){
+        return getRealStackTrace(stackTrace,ignorePackage);
     }
-    private static StackTraceElement[] getRealStackTraceElement(StackTraceElement[] stackTraceElements,String ignorePackageName){
-        int realDepth=0;
-        for (StackTraceElement stack:stackTraceElements
-        ) {
-            if (ignorePackageName!=null&&!stack.getClassName().startsWith(ignorePackageName)){
-                realDepth= Arrays.asList(stackTraceElements).indexOf(stack);
+    private static StackTraceElement[] getRealStackTrace(StackTraceElement[] stackTrace,String ignorePackage){
+
+        int ignoreDepth=0;
+        int allDepth=stackTrace.length;
+        String className;
+        for (int i = allDepth-1; i>0 ; i--) {
+            className=stackTrace[i].getClassName();
+            if(ignorePackage!=null&&className.startsWith(ignorePackage)){
+                ignoreDepth=i+1;
                 break;
             }
         }
+        int realDepth=allDepth-ignoreDepth;
         StackTraceElement[] realStack=new StackTraceElement[realDepth];
-        System.arraycopy(stackTraceElements,0,realStack,0,realDepth);
+        System.arraycopy(stackTrace,ignoreDepth,realStack,0,realDepth);
         return realStack;
+
     }
-   public static StackTraceElement[] cropStackTraceElement(StackTraceElement[] stackTraceElements,int maxDepth){
-        int realDepth=stackTraceElements.length;
-        if (stackTraceElements.length>0){
-            realDepth=Math.min(realDepth,maxDepth);
-        }
-        StackTraceElement[] realStack=new StackTraceElement[realDepth];
-        System.arraycopy(stackTraceElements,0,realStack,0,realDepth);
-        return realStack;
-    }
+
 }
