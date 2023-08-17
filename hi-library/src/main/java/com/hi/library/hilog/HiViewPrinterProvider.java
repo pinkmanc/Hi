@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.hi.library.R;
 import com.hi.library.hilog.utils.HiDisplayUtil;
 
 
@@ -19,7 +20,6 @@ import com.hi.library.hilog.utils.HiDisplayUtil;
 public class HiViewPrinterProvider {
     private FrameLayout rootView;
     private View floatingView;
-    private boolean isOpen;
     private RecyclerView recyclerView;
     private static final String TAG_FLOATING_VIEW="TAG_FLOATING_VIEW";
     private static final String TAG_LOG_VIEW="TAG_LOG_VIEW";
@@ -51,13 +51,11 @@ public class HiViewPrinterProvider {
         textView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (!isOpen){
                     showLogView();
-                }
             }
 
         });
-        textView.setText("HiLog");
+        textView.setText(R.string.hilog);
         textView.setTag(TAG_FLOATING_VIEW);
         textView.setBackgroundColor(Color.BLACK);
         textView.setAlpha(1);
@@ -72,7 +70,6 @@ public class HiViewPrinterProvider {
         params.gravity=Gravity.BOTTOM;
         logView= (FrameLayout) genLogView();
         rootView.addView(logView,params);
-        isOpen=true;
 
     }
 
@@ -94,12 +91,11 @@ public class HiViewPrinterProvider {
             }
 
         });
-        closeView.setText("Close");
+        closeView.setText(R.string.close);
         logView.addView(closeView,closeViewParams);
         return logView;
     }
     public void closeLogView() {
-        isOpen=false;
         rootView.removeView(logView);
     }
 }
