@@ -1,4 +1,4 @@
-package com.hi.cat.main
+package com.hi.cat.main.ui
 
 import android.os.Bundle
 import android.view.View
@@ -16,7 +16,7 @@ class HiLogActivity:AppCompatActivity() {
   var viewPrinter : HiViewPrinter? = null
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
-    setContentView(R.layout.activity_hilog)
+    setContentView(R.layout.activity_hi_log)
     viewPrinter = HiViewPrinter(this)
     findViewById<View>(R.id.btn_log).setOnClickListener {
       printLog()

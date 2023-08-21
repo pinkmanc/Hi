@@ -18,7 +18,8 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".main.HiLogActivity"/>
+        <activity android:name=".main.ui.HiLogActivity"/>
+        <activity android:name=".main.ui.HiRefreshActivity" />
     </application>
 
 </manifest>

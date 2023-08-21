@@ -1,12 +1,13 @@
 package com.hi.cat.main
 
-import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
-import android.os.PersistableBundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.hi.cat.R
+import com.hi.cat.main.ui.HiLogActivity
+import com.hi.cat.main.ui.HiRefreshActivity
+import com.hi.library.hilog.HiLog
 
 /**
 @author JessPinkman
@@ -19,8 +20,12 @@ class MainActivity:AppCompatActivity(),View.OnClickListener {
   }
   override fun onClick(v: View?) {
     when(v?.id){
-      R.id.tv_hilog->{
-        startActivity(Intent(this,HiLogActivity::class.java))
+      R.id.tv_hi_log->{
+        startActivity(Intent(this, HiLogActivity::class.java))
+      }
+      R.id.tv_hi_refresh->{
+
+          startActivity(Intent(this,HiRefreshActivity::class.java))
       }
     }
   }

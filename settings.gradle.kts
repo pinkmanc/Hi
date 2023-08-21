@@ -16,3 +16,4 @@ dependencyResolutionManagement {
 rootProject.name = "Hi"
 include(":hi-library")
 include(":app")
+include(":hi-ui")

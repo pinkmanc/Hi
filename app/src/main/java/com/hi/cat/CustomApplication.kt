@@ -32,6 +32,7 @@ class CustomApplication:Application() {
         return JsonParser{src ->Gson().toJson(src) }
       }
 
-    },HiConsolePrinter())
+    })
+
   }
 }

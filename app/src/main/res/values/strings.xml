@@ -1,5 +1,8 @@
 <resources>
     <string name="app_name">app</string>
     <string name="hilog">HiLog</string>
+    <string name="if_home">&#xe8c6;</string>
     <string name="print_log">Print Log</string>
+    <string name="hirefresh">HiRefresh</string>
+    <string name="hi_refresh">HiRefresh</string>
 </resources>

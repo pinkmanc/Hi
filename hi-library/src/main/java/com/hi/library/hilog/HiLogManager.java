@@ -31,7 +31,7 @@ public class HiLogManager {
     public static HiLogManager getInstance() {
         return instance;
     }
-    public static void init(@NonNull HiLogConfig config,@NonNull HiLogPrinter...printers){
+    public static void init(@NonNull HiLogConfig config,@Nullable HiLogPrinter...printers){
         instance=new HiLogManager(config,printers);
 
     }
